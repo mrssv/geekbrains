@@ -1,0 +1,7 @@
+user = input ("Введите Ваше имя:")
+print (f"Привет, {user}!")
+number_a = int(input ("Введите число a:"))
+print (f"Вы указали значение числа a равное {number_a}")
+number_b = int(input ("Введите число b:"))
+print (f"Вы указали значение числа b равное {number_b}")
+print (f"Сумма чисел a и b равна {number_a + number_b}")
