@@ -7,15 +7,18 @@
 # Физкультура: — 30(пр) —
 # Пример словаря: {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
 
-import json
+my_dict = {}
+with open('test_file_task6.txt') as file:
+    for line in file:
+        subject = line.split()
+        for i in range(len(subject)):
+            if subject[i] == '-':
+                subject[i] = "0"
 
-subj = {}
-with open('test_file_task6.txt', 'r') as init_f:
-    for line in init_f:
-        subject, lecture, practice, lab = line.split()
-        lecture = lecture.replace('-', '0').strip()
-        practice = practice.replace('-', '0').strip()
-        lab = lab.replace('-', '0').strip()
-        subj[subject] = int(lecture) + int(practice) + int(lab)
-    print(f'Общее количество часов по предмету - \n {subj}')
-
+        subject_title = subject[0].replace(':', '')
+        lectures = subject[1].replace('(л)', '')
+        practice = subject[2].replace('(пр)', '')
+        lab = subject[3].replace('(лаб)', '')
+        total_hours = int(lectures) + int(practice) + int(lab)
+        my_dict.update({subject_title: total_hours})
+print(my_dict)
